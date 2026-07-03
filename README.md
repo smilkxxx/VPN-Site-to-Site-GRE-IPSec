@@ -184,27 +184,33 @@ Cuando un equipo de la LAN 192.168.10.0/24 envía tráfico hacia la LAN 192.168.
 
 ---
 
+---
+
+# Prueba de conectividad
+
+Una vez finalizada la configuración del túnel GRE sobre IPSec, se verificó la comunicación entre ambas redes LAN.
+
+Desde la PC1 (192.168.10.10) se ejecutó un ping hacia la PC2 (192.168.20.10), comprobando que el tráfico fue encapsulado por GRE y protegido mediante IPSec antes de atravesar la red pública.
+
+El primer paquete puede perderse mientras se establece la Asociación de Seguridad (Security Association), sin embargo, una vez establecido el túnel, la comunicación se realiza correctamente.
+
+---
+
 # Evidencias
 
 ## Topología
 
-**Captura pendiente**
+![Topología](capturas/topologia.png)
 
-```
-capturas/topologia.png
-```
+La siguiente imagen muestra la topología utilizada para la implementación del túnel GRE protegido mediante IPSec.
 
 ---
 
-## Comunicación entre LANs
+## Prueba de conectividad
 
-**Captura pendiente**
+![Ping entre LANs](capturas/ping.png)
 
-```
-capturas/ping-lan-a-lan.png
-```
-
-La comunicación fue validada realizando un ping desde la PC1 (192.168.10.10) hacia la PC2 (192.168.20.10), comprobando el correcto funcionamiento del túnel GRE protegido mediante IPSec.
+En la captura se observa la comunicación exitosa entre la red **192.168.10.0/24** y la red **192.168.20.0/24**, demostrando que el túnel GRE sobre IPSec fue establecido correctamente y que existe conectividad entre ambas sedes.
 
 ---
 
@@ -220,7 +226,11 @@ También se comprobó el establecimiento de IPSec mediante:
 
 ```bash
 show crypto isakmp sa
+```
 
+y
+
+```bash
 show crypto ipsec sa
 ```
 
@@ -228,7 +238,7 @@ show crypto ipsec sa
 
 # Video demostrativo
 
-La demostración del funcionamiento de la VPN GRE sobre IPSec se encuentra disponible en el siguiente enlace:
+La demostración del funcionamiento de la VPN Site-to-Site con Túnel GRE sobre IPSec (IKEv1) se encuentra disponible en el siguiente enlace:
 
 https://youtu.be/NZGDCBhv5vI
 
@@ -238,8 +248,7 @@ https://youtu.be/NZGDCBhv5vI
 
 **Alvaro Baez Tavera**
 
-Matrícula:
+**Matrícula:** 20211150
 
-**20211150**
-
-ITLA - Ciberseguridad
+**Instituto Tecnológico de las Américas (ITLA)**  
+**Carrera:** Tecnólogo en Ciberseguridad
